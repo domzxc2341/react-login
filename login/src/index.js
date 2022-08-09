@@ -1,38 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import App from './App'
+import { BrowserRouter as Router } from 'react-router-dom';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-
-class Clock extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {time: new Date()};
-  }
-  componentDidMount(){
-this.TimerID = setInterval(
-  () => this.tick(), 1000
+root.render(
+  <Router>
+    <App />
+    </Router>
 );
-  }
-  componentWillUnmount(){
-    clearInterval(this.TimerID);
-  }
-
-  tick (){
-    this.setState({
-      time: new Date()
-    })
-  }
-  render (){
- return (
-  <div>
-    <h1> Time: {this.state.time.toLocaleTimeString()}</h1>
-  </div>
- )
-}
-}
-root.render(<Clock />);
 
 
 // If you want to start measuring performance in your app, pass a function

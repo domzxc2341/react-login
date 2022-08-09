@@ -1,18 +1,21 @@
-import React, {Component} from "react";
+import { Routes, Route } from 'react-router-dom';
+import Signin from './Components/Signin';
+import Signup from './Components/Signup';
+import Account from './Components/Account';
 
-class App extends Component{
-  constructor(props){
-    super(props);
-    this.state = {time: new Date()};
-  }
+function App() {
+  return (
+   <div>
+    <h1>Firebase</h1>
 
-render(){
-return (
-  <div>
-    <h1>Time: {this.state.time.toLocateTimeString()}</h1>
-  </div>
-);
-}
+    <Routes>
+      <Route path='/' element={<Signup />} />
+      <Route path='/signin' element={<Signin />} />
+      <Route path='/account' element={<Account />} />
+    </Routes>
+
+   </div>
+  );
 }
 
 export default App;
